@@ -196,4 +196,48 @@ Go to the Cloud Platform Console and, on the Navigation menu, click Datastore.</
 **Cogratulation!** The new question is in the Entities list!
 
 ## Bonus: Querying Cloud Datastore
+### Write code to retrieve Cloud Datastore entities
+Return to the code editor. In the **...gcp/datastore.js** file, edit the **function list** as below
+```sh
+// Lists all questions in a Quiz (defaults to 'gcp').
+// Returns a promise
+// [START list]
+function list(quiz = 'gcp') {
+  const q = ds.createQuery([kind])
+    .filter('quiz', '=', quiz);
+  const p = ds.runQuery(q);
+  return p.then(([results, { moreResults, endCursor }]) => {
+    const questions = results.map(item => {
+      item.id = item[Datastore.KEY].id;
+      delete item.correctAnswer;
+      return item;
+    });
+    return {
+      questions,
+      nextPageToken:
+      moreResults != 'NO_MORE_RESULTS' ? endCursor : false
+    };
+  });
+}
+// [END list]
+```
+### Run the application and test the Cloud Datastore query
+Save the ...gcp/datastore.js file, and then return to the Cloud Shell command.</br>
+Stop the application by pressing Ctrl+C.</br>
+Start the application.</br>
+```sh
+npm start
+```
+In Cloud Shell, click Web preview > Preview on port 8080 to preview the quiz application.</br>
+Replace the querystring at the end of the application's URL with /api/quizzes/gcp.</br></br>
+![13](https://user-images.githubusercontent.com/73010204/141936372-71d11003-dff8-439e-b87c-737a46b536e3.png)</br>
+Return to the application home page, and click **Take Test**.</br>
+Click **GCP**</br>
+You should see that the quiz question has been formatted inside the client-side web application!</br></br>
+![14](https://user-images.githubusercontent.com/73010204/141936678-aaf59a5a-b1aa-4d5b-acea-40444cd1539c.png)
 
+## Summarize
+You 've created Cloud Datastore with Node.js and query data from it
+
+## Reference
+https://www.coursera.org/learn/getting-started-app-development/home/welcome
