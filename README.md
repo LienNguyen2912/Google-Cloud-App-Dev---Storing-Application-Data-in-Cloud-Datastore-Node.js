@@ -241,3 +241,4 @@ You 've created Cloud Datastore with Node.js and query data from it
 
 ## Reference
 https://www.coursera.org/learn/getting-started-app-development/home/welcome
+https://googleapis.dev/nodejs/datastore/latest/index.html
