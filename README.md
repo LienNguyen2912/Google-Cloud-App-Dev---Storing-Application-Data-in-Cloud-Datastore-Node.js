@@ -1,8 +1,8 @@
 # App Dev - Storing Application Data in Cloud Datastore: Node.js
 ## Objectives
 - Harness Cloud Shell as your development environment.
-- Integrate Cloud Datastore into a NodeJS application.
-
+- Integrate Cloud Datastore into a NodeJS application.</br>
+![overview](https://user-images.githubusercontent.com/73010204/142084122-9050212a-0e9d-4325-b921-9e2043ea20d2.PNG)
 ## Activate Google Cloud Shell
 Google Cloud Shell is a virtual machine that is loaded with development tools. It offers a persistent 5GB home directory and runs on the Google Cloud. Google Cloud Shell provides command-line access to your GCP resources.</br>
 In GCP console, on the top right toolbar, click the Open Cloud Shell button.</br></br>
